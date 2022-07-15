@@ -15,14 +15,15 @@ jobs:
       - name: "Build & test"
         run: |
           echo "done!"
-      - uses: release-drafter/release-drafter@v5
+      - name: Release Drafter
+        uses: release-drafter/release-drafter@v5.19.0
         with:
           template: |
-          ## What's Changed
-
-          $CHANGES
+            ##what's changed
+            
+            $CHANGES
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
