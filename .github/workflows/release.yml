@@ -18,10 +18,7 @@ jobs:
       - name: Release Drafter
         uses: release-drafter/release-drafter@v5.19.0
         with:
-          template: |
-            ##what's changed
-            
-            $CHANGES
+          config-name: my-config.yml
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
