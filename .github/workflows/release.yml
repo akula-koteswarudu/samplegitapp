@@ -15,14 +15,17 @@ jobs:
       - name: "Build & test"
         run: |
           echo "done!"
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
+      - uses: release-drafter/release-drafter@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        template: |
+          ## What's Changed
 
-      - uses: go-semantic-release/action@v1
-        id: semrel
+          $CHANGES
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          update-file: package.json
-          changelog-generator-opt: "emojis=true"
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            LICENSE.txt
+            *.jar
