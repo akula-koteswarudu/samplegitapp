@@ -1,11 +1,11 @@
 {
   "name": "samplegitapp",
-  "version": "1.0.1",
+  "version": "3.2.3",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pub" : "npm publish"
+    "pub": "npm publish"
   },
   "repository": {
     "type": "git",
