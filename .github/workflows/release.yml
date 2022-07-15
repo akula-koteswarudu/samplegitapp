@@ -16,10 +16,9 @@ jobs:
         run: |
           echo "done!"
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - uses: go-semantic-release/action@v1
+        id: semrel
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
-          files: |
-            LICENSE.txt
-            *.jar
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          update-file: package.json
+          changelog-generator-opt: "emojis=true"
